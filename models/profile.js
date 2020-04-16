@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
       interval: DataTypes.INTEGER,
       duration_exercise: DataTypes.INTEGER,
       start_time: DataTypes.DATE,
-      notification: DataTypes.DATE,
+      notification: DataTypes.TIME,
     },
     {}
   );
