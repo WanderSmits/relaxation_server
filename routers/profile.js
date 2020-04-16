@@ -1,5 +1,7 @@
 const { Router } = require("express");
 const Profile = require("../models").profile;
+const Session = require("../models").sessions;
+const UserSession = require("../models").userSessions;
 const auth = require("../auth/middleware");
 
 const router = new Router();
@@ -25,8 +27,24 @@ router.post(`/`, auth, async (req, res) => {
     userId: userId,
   });
 
+  const postSession = await Session.create({
+    date: dateSubmit,
+  });
+
+  //counts rows of the Session table to get the sessionId
+  const getSessionId = await Session.count();
+
+  console.log("Session id?", getSessionId);
+
+  const postUserSession = await UserSession.create({
+    userId: userId,
+    sessionId: getSessionId,
+  });
+
   return res.json({
     postProfile,
+    postSession,
+    postUserSession,
   });
 });
 
