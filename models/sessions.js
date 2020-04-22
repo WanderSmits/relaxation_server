@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   const sessions = sequelize.define(
     "sessions",
     {
-      date: DataTypes.DATE,
+      date: DataTypes.DATEONLY,
     },
     {}
   );

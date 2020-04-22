@@ -6,17 +6,17 @@ module.exports = {
       "sessions",
       [
         {
-          date: "2020-01-01T08:00:00.000Z",
+          date: "2020-04-01",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          date: "2020-03-01T08:00:00.000Z",
+          date: "2020-03-15",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          date: "2020-02-01T08:00:00.000Z",
+          date: "2020-04-12",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
