@@ -6,17 +6,21 @@ const auth = require("../auth/middleware");
 
 const router = new Router();
 
+router.get(`/:id`, auth, async (req, res) => {
+  try {
+    const getUserSessions = await UserSession.findAll({
+      where: { userId: req.params.id },
+      include: { model: Session },
+    });
+
+    return res.json({ getUserSessions });
+  } catch (e) {
+    console.log(e);
+  }
+});
+
 router.post(`/`, auth, async (req, res) => {
   const { interval, notification, totalTime, userId, dateSubmit } = req.body;
-
-  console.log(
-    "What are my values?",
-    interval,
-    notification,
-    totalTime,
-    userId,
-    dateSubmit
-  );
 
   //creates new Profile table with the values given from the form
   const postProfile = await Profile.create({
@@ -33,8 +37,6 @@ router.post(`/`, auth, async (req, res) => {
 
   //counts rows of the Session table to get the sessionId
   const getSessionId = await Session.count();
-
-  console.log("Session id?", getSessionId);
 
   const postUserSession = await UserSession.create({
     userId: userId,
