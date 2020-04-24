@@ -9,9 +9,11 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       interval: {
+        allowNull: false,
         type: Sequelize.INTEGER,
       },
       duration_exercise: {
+        allowNull: false,
         type: Sequelize.INTEGER,
       },
       start_time: {

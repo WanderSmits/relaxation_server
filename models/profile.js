@@ -3,8 +3,8 @@ module.exports = (sequelize, DataTypes) => {
   const profile = sequelize.define(
     "profile",
     {
-      interval: DataTypes.INTEGER,
-      duration_exercise: DataTypes.INTEGER,
+      interval: { type: DataTypes.INTEGER, allowNull: false },
+      duration_exercise: { type: DataTypes.INTEGER, allowNull: false },
       start_time: DataTypes.DATE,
       notification: DataTypes.TIME,
     },
